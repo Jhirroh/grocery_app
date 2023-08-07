@@ -14,7 +14,7 @@ class Profile(models.Model):
     state = models.CharField(max_length=20, null=True, blank=True)
     country = models.CharField(max_length=50, null=True, blank=True)
     pincode = models.IntegerField(null=True, blank=True)
-    mobile = models.IntegerField(null=True, blank=True)
+    mobile = models.PositiveBigIntegerField(null=True, blank=True)
 
     def __str__(self):
         return self.user.username
