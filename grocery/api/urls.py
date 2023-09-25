@@ -1,8 +1,7 @@
 from django.urls import path
 from rest_framework.routers import DefaultRouter
 
-from .views import GroceryListCreateAPIView, GroceryRetrieveUpdateDeleteAPIView, ProductListCreateAPIView, \
-    ProductRetrieveUpdateDeleteAPIView, MarketListCreateAPIView, MarketRetrieveUpdateDeleteAPIView
+from .views import GroceryViewSet, ProductViewSet, MarketViewSet
 
 router = DefaultRouter()
 router.register('groceries', GroceryViewSet, basename='grocery')
