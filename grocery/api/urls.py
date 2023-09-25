@@ -1,14 +1,16 @@
 from django.urls import path
+from rest_framework.routers import DefaultRouter
 
 from .views import GroceryListCreateAPIView, GroceryRetrieveUpdateDeleteAPIView, ProductListCreateAPIView, \
     ProductRetrieveUpdateDeleteAPIView, MarketListCreateAPIView, MarketRetrieveUpdateDeleteAPIView
 
+router = DefaultRouter()
+router.register('groceries', GroceryViewSet, basename='grocery')
+router.register('products', ProductViewSet, basename='product')
+router.register('markets', MarketViewSet, basename='market')
+
 urlpatterns = [
-    path('groceries/', GroceryListCreateAPIView.as_view()),
-    path('groceries/<int:pk>/', GroceryRetrieveUpdateDeleteAPIView.as_view()),
-    path('products/', ProductListCreateAPIView.as_view()),
-    path('products/<int:pk>/', ProductRetrieveUpdateDeleteAPIView.as_view()),
-    path('markets/', MarketListCreateAPIView.as_view()),
-    path('markets/<int:pk>/', MarketRetrieveUpdateDeleteAPIView.as_view()),
 
 ]
+
+urlpatterns += router.urls
